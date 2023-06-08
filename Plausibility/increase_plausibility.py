@@ -41,8 +41,8 @@ def main(args):
         prompt = "Consider a multiple-choice question with the following context:\n" + context + "\nThe question is:\n" + question + "\nThe correct answer is:\n" + answer + "\nThe distractor options are:\n" + distractors_string + "\nCan you make the distractors more plausible.\nPlease return only the new distractors with each one separated by a ; and no explanations."
         print(prompt,'\n')
         model = "gpt-3.5-turbo"
-        response = openai.Completion.create(engine=model, prompt=prompt, max_tokens=200)
-        generated_text = response.choices[0].text.strip()
+        response = openai.ChatCompletion.create(model=model, messages=[{"role": "user", "content": prompt}])
+        generated_text = response.choices[0].message.content.strip()
         distractors_more_plausible = generated_text.split(';')
         curr_example = {'context': context, 'question': question, 'answer': answer, 'distractors': distractors, 'distractors_more_plausible': distractors_more_plausible}
         expanded_examples.append(curr_example)

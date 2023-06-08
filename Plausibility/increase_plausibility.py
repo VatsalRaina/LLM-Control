@@ -32,6 +32,7 @@ def main(args):
 
     expanded_examples = []
     for count, item in enumerate(sample_data):
+        if count == 50: break
         print(count)
         context, question, answer, distractors = item['context'], item['question'], item['answer'], item['distractors']
         distractors_string = ""
@@ -46,6 +47,7 @@ def main(args):
         distractors_more_plausible = generated_text.split(';')
         curr_example = {'context': context, 'question': question, 'answer': answer, 'distractors': distractors, 'distractors_more_plausible': distractors_more_plausible}
         expanded_examples.append(curr_example)
+        
 
     with open(args.save_path, 'w') as f:
         json.dump(expanded_examples, f)

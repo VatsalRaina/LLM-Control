@@ -46,8 +46,6 @@ def main(args):
         distractors_more_plausible = generated_text.split(';')
         curr_example = {'context': context, 'question': question, 'answer': answer, 'distractors': distractors, 'distractors_more_plausible': distractors_more_plausible}
         expanded_examples.append(curr_example)
-        break
-
 
     with open(args.save_path, 'w') as f:
         json.dump(expanded_examples, f)

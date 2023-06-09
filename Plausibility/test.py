@@ -23,7 +23,8 @@ parser.add_argument('--batch_size', type=int, default=32, help='Specify the trai
 parser.add_argument('--model_path', type=str, help='Load path of trained model')
 parser.add_argument('--test_data_path', type=str, help='Load path of test data')
 parser.add_argument('--type', type=str, help='increase, decrease or vanilla')
-parser.add_argument('--predictions_save_path', type=str, help='Load path to which predicted values')
+parser.add_argument('--context', type=str, default='yes', help='indicates whether the context is to be used in the input')
+parser.add_argument('--predictions_save_path', type=str, help='Load path to which predicted values should be saved')
 
 def format_time(elapsed):
     '''
@@ -66,6 +67,8 @@ def main(args):
 
     for item in test_data:
         context, question, answer = item["context"], item["question"], item["answer"]
+        if args.context == 'no':
+            context = ""
         if args.type == 'vanilla':
             distractors = item["distractors"]
         else:

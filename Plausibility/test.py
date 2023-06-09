@@ -70,9 +70,10 @@ def main(args):
             distractors = item["distractors"]
         else:
             distractors = item["distractors_more_plausible"]
+        options = [answer] + distractors
         four_inp_ids = []
         four_tok_type_ids = []
-        for i, ans in enumerate(item["options"]):
+        for i, ans in enumerate(options):
             combo = context + " [SEP] " + question + " " + ans
             inp_ids = tokenizer.encode(combo)
             if len(inp_ids)>512:

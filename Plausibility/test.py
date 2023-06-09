@@ -70,6 +70,8 @@ def main(args):
             distractors = item["distractors"]
         else:
             distractors = item["distractors_more_plausible"]
+        if len(distractors) > 3:
+            distractors = distractors[:3]
         options = [answer] + distractors
         four_inp_ids = []
         four_tok_type_ids = []

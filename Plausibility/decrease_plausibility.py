@@ -47,7 +47,7 @@ def main(args):
         distractors_more_plausible = generated_text.split(';')
         curr_example = {'context': context, 'question': question, 'answer': answer, 'distractors': distractors, 'distractors_more_plausible': distractors_more_plausible}
         batch_examples.append(curr_example)
-        if len(batch_examples) == 10:
+        if len(batch_examples) == 2:
             expanded_examples += batch_examples
             batch_examples = []
             with open(args.save_path, 'w') as f:

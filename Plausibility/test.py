@@ -73,8 +73,12 @@ def main(args):
             distractors = item["distractors"]
         else:
             distractors = item["distractors_more_plausible"]
-        if len(distractors) > 3:
-            distractors = distractors[:3]
+            if len(distractors) > 3:
+                distractors = distractors[:3]
+            miss_count = 0
+            while len(distractors) < 3:
+                miss_count += 1
+                distractors.append(item["distractors"][3-miss_count])
         options = [answer] + distractors
         four_inp_ids = []
         four_tok_type_ids = []

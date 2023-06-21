@@ -68,3 +68,7 @@ if __name__ == '__main__':
             print("openai.error.RateLimitError... #{}".format(count))
             print("restart in 10 seconds")
             time.sleep(10)
+        except openai.error.ServiceUnavailableError:
+            print("openai.error.ServiceUnavailableError... #{}".format(count))
+            print("restart in 10 seconds")
+            time.sleep(10)

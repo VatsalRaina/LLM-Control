@@ -25,7 +25,7 @@ def main(args):
     openai.api_key = args.api_key
 
     with open(args.save_path) as f:
-        expanded_examples = json.loads(f)
+        expanded_examples = json.load(f)
 
     start_point = len(expanded_examples)
 
@@ -48,7 +48,7 @@ def main(args):
             expanded_examples += batch_examples
             batch_examples = []
             with open(args.save_path, 'w') as f:
-                json.dumps(expanded_examples, f, encoding='utf-8')
+                json.dump(expanded_examples, f)
             print("Saved up to:", count)
             print("----------------------")
 

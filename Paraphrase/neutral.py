@@ -28,8 +28,8 @@ def main(args):
 
     start_point = len(expanded_examples)
 
-    with open(args.test_path, 'r') as f:
-        test_phrases = [line.strip() for line in f.readlines()]
+    with open(args.test_path, 'r', encoding='utf-8') as f:
+        test_phrases = [line.strip().replace('@@ ', '').replace('\t', ' ') for line in f.readlines()]
 
     batch_examples = []
     for count, item in enumerate(test_phrases):

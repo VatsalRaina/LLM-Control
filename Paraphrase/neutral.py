@@ -6,6 +6,7 @@ import sys
 import json
 import time
 import openai
+from unidecode import unidecode
 
 parser = argparse.ArgumentParser(description='Get all command line arguments.')
 parser.add_argument('--test_path', type=str, help='Load path of test data')
@@ -29,7 +30,7 @@ def main(args):
     start_point = len(expanded_examples)
 
     with open(args.test_path, 'r', encoding='utf-8') as f:
-        test_phrases = [line.strip().replace('@@ ', '').replace('\t', ' ') for line in f.readlines()]
+        test_phrases = [unidecode(line.strip().replace('@@ ', '').replace('\t', ' ')) for line in f.readlines()]
 
     batch_examples = []
     for count, item in enumerate(test_phrases):

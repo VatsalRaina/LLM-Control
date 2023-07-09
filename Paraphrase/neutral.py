@@ -24,7 +24,7 @@ def main(args):
     openai.api_key = args.api_key
 
     with open(args.save_path) as f:
-        expanded_examples = json.load(f)
+        expanded_examples = json.loads(f)
 
     start_point = len(expanded_examples)
 

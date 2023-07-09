@@ -47,7 +47,7 @@ def main(args):
             expanded_examples += batch_examples
             batch_examples = []
             with open(args.save_path, 'w') as f:
-                json.dump(expanded_examples, f)
+                json.dump(expanded_examples, f, encoding='utf-8')
             print("Saved up to:", count)
             print("----------------------")
 

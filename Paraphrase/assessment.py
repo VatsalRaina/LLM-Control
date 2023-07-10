@@ -49,7 +49,7 @@ def main(args):
     references = [ex['original'] for ex in examples]
     predictions = [ex['paraphrase'] for ex in examples]
 
-    sentiment_score = get_sentiment(predictions, references)
+    sentiment_score = get_sentiment(predictions)
     bert_score = get_bert_score(predictions, references)
     wer_score = get_wer(predictions, references)
 

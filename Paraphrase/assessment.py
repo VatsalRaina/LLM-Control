@@ -59,6 +59,12 @@ def get_wer(predictions, references):
 
     return wer_scores
 
+def get_blue_score(predictions, references):
+
+    bertscore = load("bleu")
+    results = bertscore.compute(predictions=predictions, references=[references], model_type="distilbert-base-uncased")
+    return results['bleu']
+
 
 def main(args):
     if not os.path.isdir('CMDs'):
@@ -85,7 +91,8 @@ def main(args):
     # print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
     # print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
 
-    
+    blue_score = get_blue_score(predictions, references)
+    print('bleu score : ', blue_score)
 
 
 

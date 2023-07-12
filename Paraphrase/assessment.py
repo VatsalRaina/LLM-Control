@@ -65,6 +65,13 @@ def get_blue_score(predictions, references):
     results = bertscore.compute(predictions=predictions, references=[references], model_type="distilbert-base-uncased")
     return results['bleu']
 
+def get_ter_score(predictions, references):
+
+    references = [[ref] for ref in references]
+    ter = datasets.load_metric("ter")
+    results = ter.compute(predictions=predictions, references=references, case_sensitive=False)
+
+    return results['ter']
 
 def main(args):
     if not os.path.isdir('CMDs'):
@@ -94,7 +101,8 @@ def main(args):
     blue_score = get_blue_score(predictions, references)
     print('bleu score : ', blue_score)
 
-
+    ter_score = get_ter_score(predictions, references)
+    print('ter score : ', ter_score)
 
 
 if __name__ == '__main__':

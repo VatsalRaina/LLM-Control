@@ -61,8 +61,10 @@ def get_wer(predictions, references):
 
 def get_blue_score(predictions, references):
 
+    references = [[ref] for ref in references]
     bertscore = load("bleu")
-    results = bertscore.compute(predictions=predictions, references=[references], model_type="distilbert-base-uncased")
+    results = bertscore.compute(predictions=predictions, references=[references])
+
     return results['bleu']
 
 def get_ter_score(predictions, references):

@@ -59,6 +59,21 @@ def get_wer(predictions, references):
 
     return wer_scores
 
+def get_blue_score(predictions, references):
+
+    references = [[ref] for ref in references]
+    bertscore = load("bleu")
+    results = bertscore.compute(predictions=predictions, references=[references])
+
+    return results['bleu']
+
+def get_ter_score(predictions, references):
+
+    references = [[ref] for ref in references]
+    ter = datasets.load_metric("ter")
+    results = ter.compute(predictions=predictions, references=references, case_sensitive=False)
+
+    return results['ter']
 
 def main(args):
     if not os.path.isdir('CMDs'):
@@ -85,9 +100,11 @@ def main(args):
     # print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
     # print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
 
-    
+    blue_score = get_blue_score(predictions, references)
+    print('bleu score : ', blue_score)
 
-
+    ter_score = get_ter_score(predictions, references)
+    print('ter score : ', ter_score)
 
 
 if __name__ == '__main__':

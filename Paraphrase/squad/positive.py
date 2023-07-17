@@ -42,7 +42,7 @@ def main(args):
         if count < start_point: continue
         print(count)
         # get paraphrase here
-        prompt = item + "\nParaphrase this document with a positive statement"
+        prompt = item + "\nParaphrase this document with a negative statement"
         # print(prompt,'\n')
         model = "gpt-3.5-turbo"
         response = openai.ChatCompletion.create(model=model, messages=[{"role": "user", "content": prompt}])

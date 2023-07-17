@@ -104,8 +104,8 @@ def main(args):
     blue_score = get_blue_score(predictions, references)
     print('bleu score : ', blue_score)
 
-    ter_score = get_ter_score(predictions, references)
-    print('ter score : ', ter_score)
+    # ter_score = get_ter_score(predictions, references)
+    # print('ter score : ', ter_score)
 
 
 if __name__ == '__main__':

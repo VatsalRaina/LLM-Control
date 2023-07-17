@@ -63,8 +63,8 @@ def get_wer(predictions, references):
 def get_blue_score(predictions, references):
 
     references = [[ref] for ref in references]
-    bertscore = load("bleu")
-    results = bertscore.compute(predictions=predictions, references=[references])
+    bleuscore = load("bleu")
+    results = bleuscore.compute(predictions=predictions, references=references)
 
     return results['bleu']
 

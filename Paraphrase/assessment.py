@@ -93,13 +93,13 @@ def main(args):
     # sentiment_score = get_sentiment(predictions)
     # print('sentiment_mean : ', np.round(np.mean(sentiment_score)* 100, 1), 'sentiment_std : ', np.round(np.std(sentiment_score)* 100, 1))
 
-    wer_score = get_wer(predictions, references)
-    print('wer_mean : ', np.round(np.mean(wer_score)* 100, 1), 'wer_std : ', np.round(np.std(wer_score)* 100, 1))
+    # wer_score = get_wer(predictions, references)
+    # print('wer_mean : ', np.round(np.mean(wer_score)* 100, 1), 'wer_std : ', np.round(np.std(wer_score)* 100, 1))
 
-    bert_score = get_bert_score(predictions, references)
-    print('f1_mean : ', np.round(np.mean(bert_score['f1']) * 100, 1), 'f1_std : ', np.round(np.std(bert_score['f1']) * 100, 1))
-    print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
-    print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
+    # bert_score = get_bert_score(predictions, references)
+    # print('f1_mean : ', np.round(np.mean(bert_score['f1']) * 100, 1), 'f1_std : ', np.round(np.std(bert_score['f1']) * 100, 1))
+    # print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
+    # print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
 
     blue_score = get_blue_score(predictions, references)
     print('bleu score : ', blue_score)

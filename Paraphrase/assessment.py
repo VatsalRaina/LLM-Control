@@ -100,11 +100,11 @@ def main(args):
     # print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
     # print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
 
-    blue_score = get_blue_score(predictions, references)
-    print('bleu score : ', blue_score)
+    # blue_score = get_blue_score(predictions, references)
+    # print('bleu score : ', blue_score)
 
-    ter_score = get_ter_score(predictions, references)
-    print('ter score : ', ter_score)
+    # ter_score = get_ter_score(predictions, references)
+    # print('ter score : ', ter_score)
 
 
 if __name__ == '__main__':

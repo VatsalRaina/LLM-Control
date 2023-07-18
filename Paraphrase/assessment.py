@@ -4,8 +4,8 @@ import argparse
 import os
 import sys
 import json
-from evaluate import load
-from jiwer import wer
+# from evaluate import load
+# from jiwer import wer
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch

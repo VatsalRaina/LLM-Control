@@ -90,8 +90,8 @@ def main(args):
     references = [ex['original'] for ex in examples]
     predictions = [ex['paraphrase'] for ex in examples]
 
-    # sentiment_score = get_sentiment(predictions)
-    # print('sentiment_mean : ', np.round(np.mean(sentiment_score)* 100, 1), 'sentiment_std : ', np.round(np.std(sentiment_score)* 100, 1))
+    sentiment_score = get_sentiment(predictions)
+    print('sentiment_mean : ', np.round(np.mean(sentiment_score)* 100, 1), 'sentiment_std : ', np.round(np.std(sentiment_score)* 100, 1))
 
     # wer_score = get_wer(predictions, references)
     # print('wer_mean : ', np.round(np.mean(wer_score)* 100, 1), 'wer_std : ', np.round(np.std(wer_score)* 100, 1))
@@ -101,8 +101,8 @@ def main(args):
     # print('recall_mean : ',np.round( np.mean(bert_score['recall'])* 100, 1), 'recall_std : ', np.round(np.std(bert_score['recall'] )* 100, 1))
     # print('precision_mean : ', np.round(np.mean(bert_score['precision'])* 100, 1), 'precision_std : ', np.round(np.std(bert_score['precision'])* 100, 1))
 
-    blue_score = get_blue_score(predictions, references)
-    print('bleu score : ', blue_score)
+    # blue_score = get_blue_score(predictions, references)
+    # print('bleu score : ', blue_score)
 
     # ter_score = get_ter_score(predictions, references)
     # print('ter score : ', ter_score)
